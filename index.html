@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+</head>
+<body>
+    <h2>User Login</h2>
+    <p id="message"></p>
+
+    <script>
+        // قراءة الكود من الرابط
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const code = urlParams.get('code');
+
+        // قائمة الأكواد المسموح بها (يجب تحديثها بناءً على الأكواد التي ينشئها الأدمن)
+        const validCodes = ["ABC123", "DEF456", "GHI789"]; // يمكن تحديثها ديناميكياً من خلال ملف مشترك أو قاعدة بيانات
+
+        // التحقق من صحة الكود
+        if (validCodes.includes(code)) {
+            document.getElementById('message').innerText = "Login Successful!";
+        } else {
+            document.getElementById('message').innerText = "Invalid Code!";
+        }
+    </script>
+</body>
+</html>
